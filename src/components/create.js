@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 function Create() {
 
@@ -9,9 +10,19 @@ function Create() {
     const handleSubmit = (e)=>{
         e.preventDefault();
 
-        console.log("Title: "+title+
+        console.log("Title: "+title+ //OUTPUT TO CONSOLE, LOGGING INFORMATION 
         " Cover: "+cover+
         " Author: "+author);
+
+        const book = {
+            title:title,
+            cover:cover,
+            author:author
+        }
+
+        axios.post('http://localhost:4000/api/book',book) //POST 
+        .then()
+        .catch();
     }
     // some comment
     return (
